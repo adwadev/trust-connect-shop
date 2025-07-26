@@ -42,7 +42,7 @@ const WaitlistSignup = () => {
           </p>
           <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-lg font-semibold mb-8">
             <span>🚀</span>
-            Start completely free
+            Currently free to use
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-6">

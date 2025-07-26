@@ -27,7 +27,7 @@ const demoProducts = [
     price: '$180',
     description: 'Ergonomic design, RGB lighting',
     image: '🪑',
-    badge: 'Quick Responder'
+    badge: 'Top Rated'
   },
   {
     id: 4,

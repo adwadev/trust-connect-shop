@@ -6,20 +6,14 @@ const badges = [
   {
     icon: Shield,
     name: 'Verified Seller',
-    description: 'Identity verified and transaction history confirmed',
+    description: 'Optional identity verification plus screenshot proof of transactions',
     color: 'bg-accent text-accent-foreground'
   },
   {
     icon: Star,
     name: 'Top Rated',
-    description: 'Consistently high ratings from buyers',
+    description: 'Consistently high ratings from verified buyer feedback',
     color: 'bg-primary text-primary-foreground'
-  },
-  {
-    icon: Clock,
-    name: 'Quick Responder',
-    description: 'Responds to messages within 30 minutes',
-    color: 'bg-secondary text-secondary-foreground'
   }
 ];
 
@@ -32,12 +26,12 @@ const ReputationBadges = () => {
             Trust through reputation
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our badge and level system ensures you're dealing with trusted sellers
+            Reputation & badges earned like levels in a game — the more trusted, the better
           </p>
         </div>
 
         {/* Badges Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
           {badges.map((badge, index) => (
             <Card key={index} className="text-center hover:shadow-soft transition-all duration-300">
               <CardContent className="pt-8 pb-6">
@@ -84,8 +78,8 @@ const ReputationBadges = () => {
                   <Award className="w-4 h-4 text-accent-foreground" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Maintain high ratings and quick responses</h4>
-                  <p className="text-muted-foreground text-sm">Consistent quality service builds long-term reputation</p>
+                  <h4 className="font-semibold mb-1">Maintain high ratings and consistency</h4>
+                  <p className="text-muted-foreground text-sm">Quality service builds long-term reputation and trust</p>
                 </div>
               </div>
             </div>
@@ -97,21 +91,21 @@ const ReputationBadges = () => {
             <div className="bg-secondary/30 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <AlertTriangle className="w-6 h-6 text-destructive" />
-                <h4 className="font-semibold">Reputation consequences</h4>
+                <h4 className="font-semibold">Scam prevention</h4>
               </div>
               
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-destructive rounded-full"></div>
-                  Negative reviews reduce reputation scores
+                  Negative feedback reduces trust scores
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-destructive rounded-full"></div>
-                  Repeated offenses trigger warnings
+                  Repeat offenders get flagged automatically  
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-destructive rounded-full"></div>
-                  Serious violations result in platform bans
+                  Serious violations result in permanent bans
                 </li>
               </ul>
             </div>

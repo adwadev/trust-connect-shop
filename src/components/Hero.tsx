@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import heroImage from '@/assets/hero-image.jpg';
 
 const Hero = () => {
   const [telegramUsername, setTelegramUsername] = useState('');
@@ -84,15 +83,23 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Visual */}
           <div className="flex justify-center lg:justify-end fade-in-up stagger-2">
             <div className="relative">
-              <img
-                src={heroImage}
-                alt="TrustConnect Platform Preview"
-                className="max-w-full h-auto rounded-2xl shadow-glow float-animation"
-              />
-              <div className="absolute inset-0 bg-gradient-primary opacity-10 rounded-2xl"></div>
+              <div className="bg-white rounded-3xl shadow-glow p-6 max-w-sm">
+                <div className="text-center space-y-4">
+                  <div className="text-6xl">🚀</div>
+                  <h3 className="text-lg font-semibold">Secure Marketplace</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Trust-based buying and selling made simple
+                  </p>
+                  <div className="flex justify-center gap-1">
+                    {[1,2,3,4,5].map(i => (
+                      <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
