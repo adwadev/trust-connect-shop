@@ -35,11 +35,15 @@ const WaitlistSignup = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Be the first to experience trust
+            Ready to get started?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join our waitlist and get early access to the platform that's changing how people buy and sell online.
+          <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
+            Join our waitlist and be among the first to experience secure, trusted buying and selling
           </p>
+          <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-lg font-semibold mb-8">
+            <span>🚀</span>
+            Start completely free
+          </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-6">
             <div className="relative flex-1">

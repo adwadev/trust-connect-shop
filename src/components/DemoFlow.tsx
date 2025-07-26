@@ -1,33 +1,65 @@
 import { useState, useEffect } from 'react';
-import demoStep1 from '@/assets/demo-step-1.jpg';
-import demoStep2 from '@/assets/demo-step-2.jpg';
-import demoStep3 from '@/assets/demo-step-3.jpg';
+import { Badge } from '@/components/ui/badge';
 
-const demoSteps = [
+const demoProducts = [
   {
-    image: demoStep1,
-    title: "Sellers create product pages",
-    description: "Upload photos, add descriptions, and set up your shop in seconds"
+    id: 1,
+    seller: '@tech_maria',
+    product: 'iPhone 15 Pro Max',
+    price: '$950',
+    description: '256GB, Space Black, excellent condition',
+    image: '📱',
+    badge: 'Verified Seller'
   },
   {
-    image: demoStep2,
-    title: "Buyers browse and filter products",
-    description: "Find exactly what you need with smart search and trusted seller ratings"
+    id: 2,
+    seller: '@bike_central',
+    product: 'Mountain Bike',
+    price: 'Price negotiable',
+    description: 'Trek X-Caliber 8, barely used, perfect for trails',
+    image: '🚴',
+    badge: 'Top Rated'
   },
   {
-    image: demoStep3,
-    title: "Buyers contact sellers with confidence",
-    description: "Secure messaging with verified feedback and trust indicators"
+    id: 3,
+    seller: '@home_gadgets',
+    product: 'Gaming Chair',
+    price: '$180',
+    description: 'Ergonomic design, RGB lighting',
+    image: '🪑',
+    badge: 'Quick Responder'
+  },
+  {
+    id: 4,
+    seller: '@fashion_finds',
+    product: 'Designer Handbag',
+    price: '$240',
+    description: 'Authentic Coach bag, gently used',
+    image: '👜',
+    badge: 'Verified Seller'
+  },
+  {
+    id: 5,
+    seller: '@guitar_shop',
+    product: 'Electric Guitar',
+    price: 'Price negotiable',
+    description: 'Fender Stratocaster, comes with amp',
+    image: '🎸',
+    badge: 'Top Rated'
   }
 ];
 
 const DemoFlow = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [visiblePosts, setVisiblePosts] = useState([0]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentStep((prev) => (prev + 1) % demoSteps.length);
-    }, 4000);
+      setVisiblePosts(prev => {
+        const nextIndex = (prev[prev.length - 1] + 1) % demoProducts.length;
+        const newPosts = [...prev, nextIndex];
+        return newPosts.slice(-3); // Keep only last 3 posts
+      });
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -37,84 +69,84 @@ const DemoFlow = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            See how simple it is
+            Live demo feed
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Watch our platform connect sellers and buyers in just three easy steps
+            Watch real product listings flow in our Telegram-style marketplace
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Demo Animation */}
-          <div className="relative">
-            <div className="relative bg-white rounded-3xl p-8 shadow-soft mx-auto max-w-sm">
-              <div className="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square">
-                {demoSteps.map((step, index) => (
-                  <div
-                    key={index}
-                    className={`demo-step absolute inset-0 ${
-                      index === currentStep ? 'active' : ''
-                    }`}
-                  >
-                    <img
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                ))}
+        <div className="max-w-md mx-auto">
+          {/* Demo Feed Container */}
+          <div className="bg-white rounded-3xl shadow-soft overflow-hidden">
+            {/* Header */}
+            <div className="bg-primary text-primary-foreground p-4 text-center font-semibold">
+              TrustConnect Feed
+            </div>
+            
+            {/* Feed Content */}
+            <div className="h-96 overflow-hidden relative">
+              <div className="space-y-0">
+                {visiblePosts.map((productIndex, index) => {
+                  const product = demoProducts[productIndex];
+                  return (
+                    <div
+                      key={`${productIndex}-${index}`}
+                      className="p-4 border-b border-gray-100 animate-fade-in"
+                      style={{
+                        animationDelay: `${index * 0.2}s`
+                      }}
+                    >
+                      {/* Seller Info */}
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-sm font-medium">
+                            {product.seller.charAt(1).toUpperCase()}
+                          </div>
+                          <span className="font-medium text-primary">{product.seller}</span>
+                        </div>
+                        <Badge variant="secondary" className="text-xs">
+                          {product.badge}
+                        </Badge>
+                      </div>
+                      
+                      {/* Product Info */}
+                      <div className="flex gap-3">
+                        <div className="text-3xl">{product.image}</div>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-foreground mb-1">
+                            {product.product}
+                          </h3>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            {product.description}
+                          </p>
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-accent">
+                              {product.price}
+                            </span>
+                            <a 
+                              href="#" 
+                              className="text-primary text-sm hover:underline"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              Contact: t.me/{product.seller}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               
-              {/* Step indicators */}
-              <div className="flex justify-center space-x-2 mt-6">
-                {demoSteps.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentStep(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentStep 
-                        ? 'bg-primary scale-125' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
-              </div>
+              {/* Fade overlay at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
             </div>
           </div>
-
-          {/* Step Content */}
-          <div className="space-y-8">
-            {demoSteps.map((step, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-500 p-6 rounded-2xl ${
-                  index === currentStep 
-                    ? 'bg-primary/5 border-2 border-primary/20 transform scale-105' 
-                    : 'bg-transparent border-2 border-transparent'
-                }`}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors duration-300 ${
-                    index === currentStep 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'bg-muted text-muted-foreground'
-                  }`}>
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
-                      index === currentStep ? 'text-primary' : 'text-foreground'
-                    }`}>
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            New posts appear automatically ↑
+          </p>
         </div>
       </div>
     </section>
