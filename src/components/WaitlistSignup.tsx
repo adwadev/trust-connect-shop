@@ -19,17 +19,19 @@ const handleSubmit = (e: React.FormEvent) => {
     return;
   }
 
-  // ✅ Open Telegram bot in a new tab/window
-  window.open('https://t.me/nagadrasbot', '_blank');
-
-  // ✅ Show confirmation toast
+  // Show a confirmation toast immediately
   toast({
     title: "You're on the list! 🎉",
-    description: "We'll send you a message on Telegram when we launch.",
+    description: "Redirecting you to Telegram...",
   });
 
-  // ✅ Reset input
+  // Reset input field
   setTelegramUsername('');
+
+  // Wait 2 seconds, then open Telegram bot
+  setTimeout(() => {
+    window.open('https://t.me/nagadrasbot', '_blank');
+  }, 2000);
 };
 
 
