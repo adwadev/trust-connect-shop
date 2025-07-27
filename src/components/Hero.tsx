@@ -8,15 +8,28 @@ const Hero = () => {
   const [telegramUsername, setTelegramUsername] = useState('');
   const { toast } = useToast();
 
-  const handleWaitlistSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!telegramUsername.trim()) {
-      toast({
-        title: "Please enter your Telegram username",
-        variant: "destructive"
-      });
-      return;
-    }
+const handleWaitlistSignup = (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!telegramUsername.trim()) {
+    toast({
+      title: "Please enter your Telegram username",
+      variant: "destructive"
+    });
+    return;
+  }
+
+  // Open Telegram bot in new tab
+  window.open('https://t.me/nagadrasbot', '_blank');
+
+  // Show thank you toast
+  toast({
+    title: "Thanks for joining the waitlist!",
+    description: "We'll notify you on Telegram when we launch.",
+  });
+
+  setTelegramUsername('');
+};
+
     
     // Here you would typically send to your backend
     toast({
