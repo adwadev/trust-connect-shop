@@ -8,23 +8,30 @@ const WaitlistSignup = () => {
   const [telegramUsername, setTelegramUsername] = useState('');
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!telegramUsername.trim()) {
-      toast({
-        title: "Please enter your Telegram username",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Here you would typically send to your backend
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!telegramUsername.trim()) {
     toast({
-      title: "You're on the list! 🎉",
-      description: "We'll send you a message on Telegram when we launch.",
+      title: "Please enter your Telegram username",
+      variant: "destructive",
     });
-    setTelegramUsername('');
-  };
+    return;
+  }
+
+  // ✅ Open Telegram bot in a new tab/window
+  window.open('https://t.me/nagadrasbot', '_blank');
+
+  // ✅ Show confirmation toast
+  toast({
+    title: "You're on the list! 🎉",
+    description: "We'll send you a message on Telegram when we launch.",
+  });
+
+  // ✅ Reset input
+  setTelegramUsername('');
+};
+
 
   return (
     <section className="py-20 px-4 bg-gradient-accent">
