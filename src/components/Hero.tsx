@@ -18,18 +18,20 @@ const handleWaitlistSignup = (e: React.FormEvent) => {
     return;
   }
 
-  // ✅ Must be called immediately after a user interaction to avoid being blocked
-  window.open('https://t.me/nagadrasbot', '_blank');
-
-  // ✅ Then show toast
+  // Show a confirmation toast immediately
   toast({
-    title: "Thanks for joining the waitlist!",
-    description: "We'll notify you on Telegram when we launch.",
+    title: "You're on the list! 🎉",
+    description: "Redirecting you to Telegram...",
   });
 
+  // Reset input field
   setTelegramUsername('');
-};
 
+  // Wait 2 seconds, then open Telegram bot
+  setTimeout(() => {
+    window.open('https://t.me/nagadrasbot', '_blank');
+  }, 2000);
+};
 
     
  
