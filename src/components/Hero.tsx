@@ -89,7 +89,7 @@ const Hero = () => {
               <div className="bg-white rounded-3xl shadow-glow p-6 max-w-sm">
                 <div className="text-center space-y-4">
                   <div className="text-6xl">🚀</div>
-                  <h3 className="text-lg font-semibold">Secure Marketplace</h3>
+                  <h3 className="text-lg font-semibold">Nagadras</h3>
                   <p className="text-sm text-muted-foreground">
                     Trust-based buying and selling made simple
                   </p>
