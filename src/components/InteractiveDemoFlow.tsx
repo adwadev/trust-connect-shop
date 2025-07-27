@@ -122,18 +122,18 @@ const InteractiveDemoFlow = () => {
                         <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center text-xs">
                           E
                         </div>
-                        <span className="text-sm font-medium">{currentStepData.product.seller}</span>
+                        <span className="text-sm font-medium">@elena_tech</span>
                         <Badge variant="secondary" className="text-xs">
-                          {currentStepData.product.badge}
+                          Verified Seller
                         </Badge>
                       </div>
                       
                       <div className="flex gap-3">
-                        <div className="text-2xl">{currentStepData.product.image}</div>
+                        <div className="text-2xl">📱</div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-sm">{currentStepData.product.product}</h4>
-                          <p className="text-xs text-muted-foreground mb-1">{currentStepData.product.description}</p>
-                          <span className="font-bold text-accent text-sm">{currentStepData.product.price}</span>
+                          <h4 className="font-semibold text-sm">iPhone 15 Pro</h4>
+                          <p className="text-xs text-muted-foreground mb-1">128GB, Space Black, like new</p>
+                          <span className="font-bold text-accent text-sm">$850</span>
                         </div>
                       </div>
                     </div>
@@ -199,7 +199,7 @@ const InteractiveDemoFlow = () => {
                       
                       <div className="bg-secondary/30 rounded-lg p-3">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-sm font-medium">{currentStepData.product.seller}</span>
+                          <span className="text-sm font-medium">@elena_tech</span>
                           <Badge variant="secondary" className="text-xs">
                             Top Rated
                           </Badge>
