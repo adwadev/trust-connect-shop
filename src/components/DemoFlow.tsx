@@ -4,48 +4,48 @@ import { Badge } from '@/components/ui/badge';
 const demoProducts = [
   {
     id: 1,
-    seller: '@tech_maria',
-    product: 'iPhone 15 Pro Max',
-    price: '$950',
-    description: '256GB, Space Black, excellent condition',
-    image: '📱',
+    seller: '@telegram_pro',
+    product: 'Premium Telegram Account',
+    price: '$25',
+    description: 'Aged account, premium features, clean history',
+    image: '💎',
     badge: 'Verified Seller'
   },
   {
     id: 2,
-    seller: '@bike_central',
-    product: 'Mountain Bike',
-    price: 'Price negotiable',
-    description: 'Trek X-Caliber 8, barely used, perfect for trails',
-    image: '🚴',
+    seller: '@topup_king',
+    product: 'Discord Nitro 1 Month',
+    price: '$8',
+    description: 'Instant delivery, works worldwide',
+    image: '🚀',
     badge: 'Top Rated'
   },
   {
     id: 3,
-    seller: '@home_gadgets',
-    product: 'Gaming Chair',
-    price: '$180',
-    description: 'Ergonomic design, RGB lighting',
-    image: '🪑',
-    badge: 'Top Rated'
-  },
-  {
-    id: 4,
-    seller: '@fashion_finds',
-    product: 'Designer Handbag',
-    price: '$240',
-    description: 'Authentic Coach bag, gently used',
-    image: '👜',
+    seller: '@channel_master',
+    product: 'Old Telegram Group',
+    price: '$150',
+    description: '10k+ members, active community, tech niche',
+    image: '👥',
     badge: 'Verified Seller'
   },
   {
-    id: 5,
-    seller: '@guitar_shop',
-    product: 'Electric Guitar',
+    id: 4,
+    seller: '@bot_creator',
+    product: 'Custom Telegram Bot',
     price: 'Price negotiable',
-    description: 'Fender Stratocaster, comes with amp',
-    image: '🎸',
+    description: 'AI-powered bot with admin features',
+    image: '🤖',
     badge: 'Top Rated'
+  },
+  {
+    id: 5,
+    seller: '@service_hub',
+    product: 'Instagram Followers',
+    price: '$45',
+    description: '10k real followers, gradual delivery',
+    image: '📈',
+    badge: 'Verified Seller'
   }
 ];
 

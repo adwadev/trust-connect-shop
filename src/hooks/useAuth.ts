@@ -31,13 +31,10 @@ export const useAuth = () => {
 
   const signUp = async (email: string, password: string, fullName?: string) => {
     try {
-      const redirectUrl = `${window.location.origin}/`;
-      
       const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: redirectUrl,
           data: {
             full_name: fullName,
           }
@@ -47,8 +44,8 @@ export const useAuth = () => {
       if (error) throw error;
 
       toast({
-        title: "Success!",
-        description: "Please check your email to confirm your account.",
+        title: "Account created!",
+        description: "You can now sign in to your account.",
       });
       
       return { error: null };

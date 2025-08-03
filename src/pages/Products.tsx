@@ -56,11 +56,13 @@ const Products = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="electronics">Electronics</SelectItem>
-                  <SelectItem value="clothing">Clothing</SelectItem>
-                  <SelectItem value="books">Books</SelectItem>
-                  <SelectItem value="home">Home & Garden</SelectItem>
-                  <SelectItem value="sports">Sports</SelectItem>
+                  <SelectItem value="accounts">Telegram Accounts</SelectItem>
+                  <SelectItem value="topup">Top-up Services</SelectItem>
+                  <SelectItem value="services">Digital Services</SelectItem>
+                  <SelectItem value="oldgroup">Old Groups/Channels</SelectItem>
+                  <SelectItem value="bots">Telegram Bots</SelectItem>
+                  <SelectItem value="memberships">Premium Memberships</SelectItem>
+                  <SelectItem value="others">Others</SelectItem>
                 </SelectContent>
               </Select>
               <Select value={priceRange} onValueChange={setPriceRange}>

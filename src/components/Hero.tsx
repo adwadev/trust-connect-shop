@@ -77,21 +77,6 @@ const handleWaitlistSignup = (e: React.FormEvent) => {
               </Link>
             </div>
 
-            {/* Waitlist Form */}
-            <form onSubmit={handleWaitlistSignup} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
-              <div className="relative flex-1">
-                <Input
-                  type="text"
-                  placeholder="@your_telegram for updates"
-                  value={telegramUsername}
-                  onChange={(e) => setTelegramUsername(e.target.value)}
-                  className="h-12 pl-4 pr-4 text-base rounded-lg border-2 border-border/50 focus:border-primary"
-                />
-              </div>
-              <Button type="submit" variant="outline" size="lg" className="shrink-0">
-                Get Updates
-              </Button>
-            </form>
 
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground">
