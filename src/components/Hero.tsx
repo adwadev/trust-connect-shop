@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { CheckCircle, Star } from 'lucide-react';
+import { CheckCircle, Star, ShoppingBag, LogIn } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Hero = () => {
@@ -60,19 +61,35 @@ const handleWaitlistSignup = (e: React.FormEvent) => {
               without endless searching.
             </p>
 
-            {/* CTA Form */}
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
+              <Link to="/products" className="flex-1">
+                <Button variant="cta" size="lg" className="w-full">
+                  <ShoppingBag className="w-5 h-5 mr-2" />
+                  Browse Products
+                </Button>
+              </Link>
+              <Link to="/auth" className="flex-1">
+                <Button variant="hero" size="lg" className="w-full">
+                  <LogIn className="w-5 h-5 mr-2" />
+                  Get Started
+                </Button>
+              </Link>
+            </div>
+
+            {/* Waitlist Form */}
             <form onSubmit={handleWaitlistSignup} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
               <div className="relative flex-1">
                 <Input
                   type="text"
-                  placeholder="@your_telegram"
+                  placeholder="@your_telegram for updates"
                   value={telegramUsername}
                   onChange={(e) => setTelegramUsername(e.target.value)}
                   className="h-12 pl-4 pr-4 text-base rounded-lg border-2 border-border/50 focus:border-primary"
                 />
               </div>
-              <Button type="submit" variant="cta" size="lg" className="shrink-0">
-                Join the Waitlist
+              <Button type="submit" variant="outline" size="lg" className="shrink-0">
+                Get Updates
               </Button>
             </form>
 
