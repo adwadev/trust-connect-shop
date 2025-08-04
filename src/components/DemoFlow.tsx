@@ -4,47 +4,47 @@ import { Badge } from '@/components/ui/badge';
 const demoProducts = [
   {
     id: 1,
-    seller: '@telegram_pro',
-    product: 'Premium Telegram Account',
-    price: '$25',
-    description: 'Aged account, premium features, clean history',
-    image: '💎',
+    seller: 'ElectroWorld',
+    product: 'Wireless Headphones',
+    price: '$89',
+    description: 'Noise-canceling, 30h battery, premium sound',
+    image: '🎧',
     badge: 'Verified Seller'
   },
   {
     id: 2,
-    seller: '@topup_king',
-    product: 'Discord Nitro 1 Month',
-    price: '$8',
-    description: 'Instant delivery, works worldwide',
-    image: '🚀',
+    seller: 'FitnessPro',
+    product: 'Personal Training Session',
+    price: '$50',
+    description: 'One-on-one coaching, custom workout plan',
+    image: '💪',
     badge: 'Top Rated'
   },
   {
     id: 3,
-    seller: '@channel_master',
-    product: 'Old Telegram Group',
-    price: '$150',
-    description: '10k+ members, active community, tech niche',
-    image: '👥',
+    seller: 'BookHaven',
+    product: 'Vintage Book Collection',
+    price: '$120',
+    description: 'Rare classics, excellent condition, collector items',
+    image: '📚',
     badge: 'Verified Seller'
   },
   {
     id: 4,
-    seller: '@bot_creator',
-    product: 'Custom Telegram Bot',
-    price: 'Price negotiable',
-    description: 'AI-powered bot with admin features',
-    image: '🤖',
+    seller: 'TechRepair',
+    product: 'Laptop Repair Service',
+    price: '$75',
+    description: 'Screen replacement, virus removal, hardware fixes',
+    image: '💻',
     badge: 'Top Rated'
   },
   {
     id: 5,
-    seller: '@service_hub',
-    product: 'Instagram Followers',
-    price: '$45',
-    description: '10k real followers, gradual delivery',
-    image: '📈',
+    seller: 'ArtStudio',
+    product: 'Custom Portrait Painting',
+    price: '$200',
+    description: 'Hand-painted, premium materials, 2-week delivery',
+    image: '🎨',
     badge: 'Verified Seller'
   }
 ];
@@ -72,7 +72,7 @@ const DemoFlow = () => {
             Live demo feed
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Watch real product listings flow in our Telegram-style marketplace
+            Watch real product listings flow in our trusted marketplace
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const DemoFlow = () => {
           <div className="bg-white rounded-3xl shadow-soft overflow-hidden">
             {/* Header */}
             <div className="bg-primary text-primary-foreground p-4 text-center font-semibold">
-              TrustConnect Feed
+              Nagadras Marketplace
             </div>
             
             {/* Feed Content */}
@@ -129,7 +129,7 @@ const DemoFlow = () => {
                               className="text-primary text-sm hover:underline"
                               onClick={(e) => e.preventDefault()}
                             >
-                              Contact: t.me/{product.seller}
+                              Contact Seller
                             </a>
                           </div>
                         </div>

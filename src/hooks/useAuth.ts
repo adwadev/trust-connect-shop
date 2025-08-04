@@ -31,22 +31,26 @@ export const useAuth = () => {
 
   const signUp = async (email: string, password: string, fullName?: string) => {
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
           data: {
             full_name: fullName,
-          }
+          },
+          emailRedirectTo: undefined // Disable email confirmation
         }
       });
 
       if (error) throw error;
 
-      toast({
-        title: "Account created!",
-        description: "You can now sign in to your account.",
-      });
+      // Auto-login after signup since email confirmation is disabled
+      if (data.user && !error) {
+        toast({
+          title: "Account created and signed in!",
+          description: "Welcome to Nagadras!",
+        });
+      }
       
       return { error: null };
     } catch (error: any) {
