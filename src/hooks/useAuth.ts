@@ -37,15 +37,32 @@ export const useAuth = () => {
         options: {
           data: {
             full_name: fullName,
-          },
-          emailRedirectTo: undefined // Disable email confirmation
+          }
         }
       });
 
       if (error) throw error;
 
-      // Auto-login after signup since email confirmation is disabled
-      if (data.user && !error) {
+      // If user is created but needs confirmation, auto-sign them in
+      if (data.user && data.user.email_confirmed_at === null) {
+        // Attempt to sign in immediately after signup
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        
+        if (!signInError) {
+          toast({
+            title: "Account created and signed in!",
+            description: "Welcome to Nagadras!",
+          });
+        } else {
+          toast({
+            title: "Account created!",
+            description: "Please check your email to confirm your account.",
+          });
+        }
+      } else if (data.user && data.user.email_confirmed_at) {
         toast({
           title: "Account created and signed in!",
           description: "Welcome to Nagadras!",
